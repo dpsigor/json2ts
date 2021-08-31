@@ -1,8 +1,7 @@
 #!/bin/bash
-read foo
-echo $foo | jq . > /tmp/json2ts_tmp && \
-  cat /tmp/json2ts_tmp_i && \
-  make_types -i /tmp/json2ts_tmp_i /tmp/json2ts_tmp root && \
-  cat /tmp/json2ts_tmp_i && \
-  echo "" > /tmp/json2ts_tmp_i
 
+tee /tmp/json2ts_tmp &>/dev/null
+make_types -i /tmp/json2ts_tmp_i /tmp/json2ts_tmp root
+cat /tmp/json2ts_tmp_i
+echo "" > /tmp/json2ts_tmp
+echo "" > /tmp/json2ts_tmp_i
